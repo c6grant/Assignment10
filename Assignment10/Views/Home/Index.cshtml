@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+
+
+@*States Team Name that was selected*@
+<div class="text-center">
+    <h1>@Model.Team</h1>
+</div>
+
+<br />
+
+
+@*Table for Team Memebers Info*@
+<table class="table table-dark table-striped table-hover">
+    <thead class="thead-light table-bordered table-condensed">
+        <tr>
+            <th>First Name</th>
+            <th>Middle Initial</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+
+
+        @foreach (var x in Model.Bowlers)
+        {
+            <tr>
+                <td>@x.BowlerFirstName</td>
+                <td>@x.BowlerMiddleInit</td>
+                <td>@x.BowlerLastName</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+            </tr>
+        }
+</table>
+
+            <div page-info="@Model.PageNumberingInfo" 
+                 page-url-team="@Model.Team"
+                 page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary">
+
+            </div>
